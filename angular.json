@@ -37,7 +37,7 @@
           },
           "options": {
             "assets": [],
-            "index": "src/index.html",
+            "index": "./index.html",
             "main": "src/main.ts",
             "outputPath": "dist/demo",
             "scripts": [],
