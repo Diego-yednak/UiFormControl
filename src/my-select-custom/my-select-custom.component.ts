@@ -5,8 +5,8 @@ import { FormControl } from '@angular/forms';
   selector: 'my-select',
   template: `
   <mat-form-field>
-    <mat-select [formControl]="ctrl" [placeholder]="placeholder">
-      <mat-option *ngFor="let option of options" [value]="option">
+    <mat-select >
+      <mat-option *ngFor="let option of cities" [value]="option">
         {{ option }}
       </mat-option>
     </mat-select>
@@ -18,4 +18,6 @@ export class MySelectComponent {
   // @Input() ctrl: FormControl;
   // @Input() options: string[];
   // @Input() placeholder: string;
+  cities = ['Krakow', 'Warszawa', 'Gdansk'];
+  countries = ['Poland', 'Germany', 'Sweden'];
 }
