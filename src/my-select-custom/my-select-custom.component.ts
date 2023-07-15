@@ -5,7 +5,7 @@ import { FormControl } from '@angular/forms';
   selector: 'my-select',
   template: `
   <mat-form-field>
-    <mat-select >
+    <mat-select>
       <mat-option *ngFor="let option of cities" [value]="option">
         {{ option }}
       </mat-option>

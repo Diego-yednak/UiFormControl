@@ -13,7 +13,7 @@ import { MySelectComponent } from './my-select-custom/my-select-custom.component
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSelectModule,
+    MatSelectModule
   ],
   declarations: [AppComponent, MySelectComponent],
   bootstrap: [AppComponent],
