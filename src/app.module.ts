@@ -6,6 +6,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { MySelectComponent } from './home/my-select-custom/my-select-custom.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
@@ -14,6 +16,8 @@ import { MySelectComponent } from './home/my-select-custom/my-select-custom.comp
     ReactiveFormsModule,
     FormsModule,
     MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [HomeComponent, MySelectComponent],
   bootstrap: [HomeComponent],

@@ -20,8 +20,8 @@ export class HomeComponent {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      cities: ['', Validators.required],
-      countries: ['', Validators.required],
+      cities: new FormControl<any>(null, [Validators.required]),
+      countries: new FormControl<any>(null, [Validators.required])
     });
   }
 }
