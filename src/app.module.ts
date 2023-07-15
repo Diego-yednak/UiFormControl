@@ -4,8 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './app/home.component';
-import { MySelectComponent } from './app/my-select-custom/my-select-custom.component';
+import { HomeComponent } from './home/home.component';
+import { MySelectComponent } from './home/my-select-custom/my-select-custom.component';
 
 @NgModule({
   imports: [
@@ -13,7 +13,7 @@ import { MySelectComponent } from './app/my-select-custom/my-select-custom.compo
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   declarations: [HomeComponent, MySelectComponent],
   bootstrap: [HomeComponent],
