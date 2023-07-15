@@ -7,16 +7,16 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
     styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  form: FormGroup;
-  animalControl2 = new FormControl<any>(null, [Validators.required]);
+    form: FormGroup;
+    animalControl2 = new FormControl<any>(null, [Validators.required]);
 
-  cities = ['Krakow', 'Warszawa', 'Gdansk'];
-  countries = ['Poland', 'Germany', 'Sweden'];
+    cities = ['Krakow', 'Warszawa', 'Gdansk'];
+    countries = ['Poland', 'Germany', 'Sweden'];
 
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      cities: new FormControl<any>(null, [Validators.required]),
-      countries: new FormControl<any>(null, [Validators.required])
-    });
-  }
+    constructor(private fb: FormBuilder) {
+        this.form = this.fb.group({
+            cities: new FormControl<any>(null, [Validators.required]),
+            countries: new FormControl<any>(null, [Validators.required])
+        });
+    }
 }

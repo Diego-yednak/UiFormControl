@@ -1,9 +1,20 @@
-<form [formGroup]="form">
-    <mat-form-field>
-        <mat-label>Input</mat-label>
-        <input matInput formControlName = "cities">
-      </mat-form-field>
-    <my-select></my-select>
-</form>
+<div class = "example-container">
+    <form [formGroup] = "form">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName = "cities">
+            <mat-error>Some Error</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput formControlName = "cities">
+            <mat-error>Some Error</mat-error>
+        </mat-form-field>
+
+        <h4>native html select</h4>
+        <my-select></my-select>
+    </form>
+</div>
 
 {{ form.value | json }}
