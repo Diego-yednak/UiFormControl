@@ -1,13 +1,19 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import {importProvidersFrom} from '@angular/core';
+import {bootstrapApplication} from '@angular/platform-browser';
+import {provideHttpClient} from '@angular/common/http';
+import {provideAnimations} from '@angular/platform-browser/animations';
+import {VERSION as CDK_VERSION} from '@angular/cdk';
+import {VERSION as MAT_VERSION, MatNativeDateModule} from '@angular/material/core';
+import {SelectOverviewExample} from './example/select-overview-example';
 
-import { AppModule } from './app.module';
+/* eslint-disable no-console */
+console.info('Angular CDK version', CDK_VERSION.full);
+console.info('Angular Material version', MAT_VERSION.full);
 
-platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
-  // Ensure Angular destroys itself on hot reloads.
-  if ((window as any)['ngRef']) {
-    (window as any)['ngRef'].destroy();
-  }
-  (window as any)['ngRef'] = ref;
-
-  // Otherise, log the boot error
+bootstrapApplication(SelectOverviewExample, {
+  providers: [
+    provideAnimations(),
+    provideHttpClient(),
+    importProvidersFrom(MatNativeDateModule)
+  ]
 }).catch(err => console.error(err));
