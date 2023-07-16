@@ -5,19 +5,19 @@ export class ErrorMessageControl {
 
     static required = {
         message: 'Campo obrigatório',
-        errorType: ErrorTypeEnum.required.toString(),
+        errorType: ErrorTypeEnum[ErrorTypeEnum.required],
         code: ErrorTypeEnum.required
     } as ErrorMessageModel;
 
     static pattern = {
         message: 'Preenchimento inválido',
-        errorType: ErrorTypeEnum.pattern.toString(),
+        errorType: ErrorTypeEnum[ErrorTypeEnum.pattern],
         code: ErrorTypeEnum.pattern
     } as ErrorMessageModel;
 
     static email = {
         message: 'Valor não corresponde a um email Ex.: devops@telefonica.com',
-        errorType: ErrorTypeEnum.email.toString(),
+        errorType: ErrorTypeEnum[ErrorTypeEnum.email],
         code: ErrorTypeEnum.email
     } as ErrorMessageModel;
 
