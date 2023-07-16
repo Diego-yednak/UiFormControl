@@ -2,18 +2,17 @@
     <form [formGroup] = "form">
         <mat-form-field>
             <mat-label>Name</mat-label>
-            <input matInput formControlName = "cities">
-            <mat-error>Some Error</mat-error>
+            <input matInput formControlName = "yourName">
+            <mat-error *matErrorContent = "let error">{{ error?.message }}</mat-error>
         </mat-form-field>
-
         <mat-form-field>
-            <mat-label>Name</mat-label>
-            <input matInput formControlName = "cities">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName = "lastName">
             <mat-error>Some Error</mat-error>
         </mat-form-field>
-
-        <h4>native html select</h4>
+        <h4>Custom Select</h4>
         <my-select></my-select>
+        <button mat-button class = "ui-circle-button">Submit</button>
     </form>
 </div>
 

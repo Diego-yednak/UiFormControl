@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomValidator } from '../shared/util/custom-validator';
 
 @Component({
     selector: 'my-home',
@@ -7,16 +8,14 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
     styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-    form: FormGroup;
-    animalControl2 = new FormControl<any>(null, [Validators.required]);
 
     cities = ['Krakow', 'Warszawa', 'Gdansk'];
     countries = ['Poland', 'Germany', 'Sweden'];
 
-    constructor(private fb: FormBuilder) {
-        this.form = this.fb.group({
-            cities: new FormControl<any>(null, [Validators.required]),
-            countries: new FormControl<any>(null, [Validators.required])
-        });
-    }
+    form= new FormGroup({
+        yourName: new FormControl<string>('', [CustomValidator.required]),
+        lastName: new FormControl<string>('', [Validators.required]),
+        countries: new FormControl<any>(null, [Validators.required])
+    });
+
 }
