@@ -2,13 +2,18 @@
     <form [formGroup] = "form">
         <mat-form-field>
             <mat-label>Name</mat-label>
-            <input matInput formControlName = "yourName">
+            <input matInput formControlName = "name">
             <mat-error *matErrorContent = "let error">{{ error?.message }}</mat-error>
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName = "lastName">
-            <mat-error>Some Error</mat-error>
+            <mat-label>Age</mat-label>
+            <input matInput formControlName = "age">
+            <mat-error *matErrorContent = "let error">{{ error?.message }}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName = "email">
+            <mat-error *matErrorContent = "let error">{{ error?.message }}</mat-error>
         </mat-form-field>
         <h4>Custom Select</h4>
         <my-select></my-select>

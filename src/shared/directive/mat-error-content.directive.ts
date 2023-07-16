@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Directive, OnInit, TemplateRef, ViewContainerRef } f
 import { AbstractControl } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 import { ErrorMessageModel } from '../model/error-message.model';
-import { ErrorContext } from '../model/error-context.model';
+import { LetContext } from '../model/error-context.model';
 
 @Directive({
     selector: '[matErrorContent]'
@@ -10,12 +10,12 @@ import { ErrorContext } from '../model/error-context.model';
 
 export class MatErrorContentDirective implements OnInit {
 
-    private context: ErrorContext = { $implicit: undefined };
+    private context: LetContext<ErrorMessageModel> = { $implicit: undefined };
     private control: AbstractControl<any, any> | undefined | null;
 
     constructor(
         private readonly matFormField: MatFormField,
-        private templateRef: TemplateRef<ErrorContext>,
+        private templateRef: TemplateRef<LetContext<ErrorMessageModel>>,
         private viewContainer: ViewContainerRef,
         private cdRef: ChangeDetectorRef
     ) {
@@ -49,4 +49,7 @@ export class MatErrorContentDirective implements OnInit {
         this.context.$implicit = value;
     }
 
+    static ngTemplateContextGuard(dir: MatErrorContentDirective, ctx: unknown): ctx is LetContext<ErrorMessageModel> {
+        return true;
+    }
 }

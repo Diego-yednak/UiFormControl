@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { CustomValidator } from '../shared/util/custom-validator';
 
 @Component({
@@ -13,9 +13,9 @@ export class HomeComponent {
     countries = ['Poland', 'Germany', 'Sweden'];
 
     form= new FormGroup({
-        yourName: new FormControl<string>('', [CustomValidator.required]),
-        lastName: new FormControl<string>('', [Validators.required]),
-        countries: new FormControl<any>(null, [Validators.required])
+        name: new FormControl<string | null>(null, [CustomValidator.required]),
+        age: new FormControl<number | null>(null, [CustomValidator.required, CustomValidator.requiredNumber]),
+        email: new FormControl<string | null>(null, [CustomValidator.required, CustomValidator.email])
     });
 
 }
