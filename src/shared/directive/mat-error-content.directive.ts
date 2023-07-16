@@ -10,12 +10,12 @@ import { ErrorContext } from '../model/error-context.model';
 
 export class MatErrorContentDirective implements OnInit {
 
-    private context: ErrorContext = {$implicit: undefined};
+    private context: ErrorContext = { $implicit: undefined };
     private control: AbstractControl<any, any> | undefined | null;
 
     constructor(
         private readonly matFormField: MatFormField,
-        private templateRef: TemplateRef<any>,
+        private templateRef: TemplateRef<ErrorContext>,
         private viewContainer: ViewContainerRef,
         private cdRef: ChangeDetectorRef
     ) {
