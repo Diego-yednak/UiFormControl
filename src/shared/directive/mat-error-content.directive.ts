@@ -18,8 +18,7 @@ export class MatErrorContentDirective implements OnInit {
         private templateRef: TemplateRef<LetContext<ErrorMessageModel>>,
         private viewContainer: ViewContainerRef,
         private cdRef: ChangeDetectorRef
-    ) {
-    }
+    ) { }
 
     ngOnInit() {
         this.cdRef.detectChanges();
