@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { CustomValidator } from '../shared/util/custom-validator';
 import { UiFormBuilder } from '../shared/util/ui-form-builder';
-import { UiFormControl } from '../shared/util/ui-form-control';
 
 @Component({
     selector: 'my-home',
@@ -12,18 +11,21 @@ import { UiFormControl } from '../shared/util/ui-form-control';
 })
 export class HomeComponent implements OnInit {
 
-    cities = ['Krakow', 'Warszawa', 'Gdansk'];
-    countries = ['Poland', 'Germany', 'Sweden'];
+    countries = ['Brazil', 'Italy', 'France'];
+    cities = ['Brasilia', 'Roma', 'Paris'];
 
     constructor(private _formBuilder: FormBuilder) { }
 
     form= this._formBuilder.group({
         name: new FormControl<string | null>(null, [CustomValidator.required]),
         age: new FormControl<number | null>(null, [CustomValidator.required, CustomValidator.requiredNumber]),
-        email: this._formBuilder.control(null, [CustomValidator.required, CustomValidator.email])
+        email: this._formBuilder.control(null, [CustomValidator.required, CustomValidator.email]),
+        other: this._formBuilder.control(null, [CustomValidator.required, CustomValidator.email])
     });
 
-    ngOnInit(): void {
-        console.log('form: ', (this.form.controls.age as UiFormControl).getTouchChange())
+    ngOnInit(): void { }
+
+    eventSubmit() {
+        this.form.markAllAsTouched();
     }
 }

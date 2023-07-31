@@ -1,5 +1,5 @@
 <div class = "example-container">
-    <form [formGroup] = "form">
+    <form [formGroup] = "form" (ngSubmit) = "eventSubmit()">
         <mat-form-field>
             <mat-label>Name</mat-label>
             <input matInput formControlName = "name">
@@ -17,8 +17,8 @@
         </mat-form-field>
 
         <h4>Custom Select</h4>
-        <my-select></my-select>
-        <button mat-button class = "ui-circle-button">Submit</button>
+        <my-select formControlName = "other" [options] = "countries"></my-select>
+        <button mat-raised-button>Submit</button>
     </form>
 </div>
 
