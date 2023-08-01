@@ -2,25 +2,19 @@ import { Component, Input } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, ValidationErrors, Validator } from '@angular/forms';
 import { GenerateProviders } from '../../shared/util/generate-providers';
 import { UiFormControl } from '../../shared/util/ui-form-control';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
     selector: 'my-select',
-    template: `
-        <mat-form-field>
-            <mat-select>
-                <mat-option *ngFor = "let option of options" [value] = "option">
-                    {{ option }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    `,
-    styles: [`:host {
-      display: block;
-    }`],
+    templateUrl: 'my-custom-select.component.html',
+    styleUrls: ['my-custom-select.component.css'],
     providers: GenerateProviders.defaultForm(MySelectComponent)
 })
 export class MySelectComponent implements ControlValueAccessor, Validator {
     @Input() options: string[];
+
+    items: Array<string> = [];
+    itemsStr: string = '';
 
     private parentControl: UiFormControl;
 
@@ -40,10 +34,29 @@ export class MySelectComponent implements ControlValueAccessor, Validator {
 
     writeValue(obj: any): void { }
 
-    private watchParentControl() {
-        this.parentControl.getTouchChange().subscribe((touch) => {
-            console.log('touch: ', touch);
-        })
+    touch(touch: boolean): void {
+        console.log('touch: ', touch);
     }
 
+    private watchParentControl() {
+        this.parentControl.getTouchChange().subscribe(touch=> this.touch(touch));
+    }
+
+    eventSelectionChange(event: MatSelectChange) {
+        const selectedValue = event.value;
+        const index = this.options.indexOf(selectedValue);
+        if (index != -1) {
+            this.options.splice(index, 1);
+            this.items.push(selectedValue);
+        }
+        this.itemsStr = this.items.toString();
+    }
+
+    eventRemove() {
+        const item = this.items.pop();
+        if (item) {
+            this.options.push(item);
+        }
+        this.itemsStr = this.items.toString();
+    }
 }
