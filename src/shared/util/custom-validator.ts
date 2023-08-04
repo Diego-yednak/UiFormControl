@@ -24,5 +24,12 @@ export class CustomValidator {
         }
         return null;
     }
+    static requiredCountItem(control: AbstractControl): ErrorMessageModel | null {
+        const value = control.value as Array<string>;
+        if (value && value.length !== 2) {
+            return ErrorMessageControl.requiredCountItem
+        }
+        return null;
+    }
 
 }

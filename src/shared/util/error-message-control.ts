@@ -26,8 +26,14 @@ export class ErrorMessageControl {
 
     static requiredNumber = {
         message: 'Número inválido',
-        errorType: ErrorTypeEnum[ErrorTypeEnum.email],
+        errorType: ErrorTypeEnum[ErrorTypeEnum.number],
         code: ErrorTypeEnum.email
+    } as ErrorMessageModel;
+
+    static requiredCountItem = {
+        message: 'São necessários 2 itens',
+        errorType: ErrorTypeEnum[ErrorTypeEnum.items],
+        code: ErrorTypeEnum.items
     } as ErrorMessageModel;
 
 }

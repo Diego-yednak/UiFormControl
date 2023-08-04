@@ -1,5 +1,7 @@
 export enum ErrorTypeEnum {
     required,
     email,
-    pattern
+    pattern,
+    items,
+    number,
 }

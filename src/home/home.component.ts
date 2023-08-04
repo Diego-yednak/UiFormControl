@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
         name: new FormControl<string | null>(null, [CustomValidator.required]),
         age: new FormControl<number | null>(null, [CustomValidator.required, CustomValidator.requiredNumber]),
         email: this._formBuilder.control(null, [CustomValidator.required, CustomValidator.email]),
-        other: this._formBuilder.control(null, [CustomValidator.required, CustomValidator.email])
+        other: new FormControl<Array<string>>([], [CustomValidator.required, CustomValidator.requiredCountItem])
     });
 
     ngOnInit(): void { }

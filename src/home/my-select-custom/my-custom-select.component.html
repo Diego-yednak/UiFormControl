@@ -1,20 +1,22 @@
 <div class = "example-container">
-    <mat-form-field>
-        <mat-label>Favorite country</mat-label>
-        <mat-select (selectionChange) = "eventSelectionChange($event)">
-            <mat-option *ngFor = "let option of options" [value] = "option">
-                {{ option }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+    <div>
+        <mat-form-field>
+            <mat-label>Favorite country</mat-label>
+            <mat-select (selectionChange) = "eventSelectionChange($event)">
+                <mat-option *ngFor = "let option of getOptions()" [value] = "option">
+                    {{ option }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class = "ui-form-field-input">
+            <mat-label>Favorite country</mat-label>
+            <input matInput placeholder = "Ex. Brazil" [disabled] = "true" [value] = "value.toString()">
+        </mat-form-field>
+        <button type = "button" mat-raised-button color = "warn" (click) = "eventRemove()"
+                [disabled] = "value.length == 0">
+            remove
+        </button>
+    </div>
+     <mat-error> {{ parentControl.touched? parentControl.errors?.message: '' }} </mat-error>
 
-    <mat-form-field class = "ui-form-field-input">
-        <mat-label>Favorite country</mat-label>
-        <input matInput placeholder = "Ex. Brazil" [disabled] = "true" [value] = "itemsStr">
-    </mat-form-field>
-    <button type = "button" mat-raised-button color = "warn" (click) = "eventRemove()" [disabled] = "items.length == 0">
-        remove
-    </button>
-    <br>
-    teste
 </div>
