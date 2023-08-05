@@ -61,7 +61,7 @@ export class MyCustomSelectComponent implements ControlValueAccessor, Validator 
     }
 
     private watchParentControl() {
-        this.parentControl.getTouchChange().subscribe(
+        this.parentControl.getTouchedChanges().subscribe(
             touch => this.touch(touch)
         );
     }

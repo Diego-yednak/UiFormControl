@@ -3,24 +3,24 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 export class UiFormControl<TValue = any> extends FormControl {
 
-    private touchChange: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+    private touchedChanges: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
     override getRawValue(): TValue {
       return super.getRawValue();
     }
 
-    public getTouchChange(): Observable<boolean> {
-        return this.touchChange;
+    public getTouchedChanges(): Observable<boolean> {
+        return this.touchedChanges;
     }
     override markAsTouched(pts?: { onlySelf?: boolean }) {
         super.markAsTouched(pts);
-        this.touchChange.next(true);
+        this.touchedChanges.next(true);
     }
 
     public resetTouchChange() {
-        if (this.touchChange) {
-            this.touchChange.unsubscribe();
+        if (this.touchedChanges) {
+            this.touchedChanges.unsubscribe();
         }
-        this.touchChange = new BehaviorSubject<boolean>(false);
+        this.touchedChanges = new BehaviorSubject<boolean>(false);
     }
 }
