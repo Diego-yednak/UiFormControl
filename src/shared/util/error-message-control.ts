@@ -19,7 +19,7 @@ export class ErrorMessageControl {
     } as ErrorMessageModel;
 
     static email = {
-        message: 'Valor não corresponde a um email Ex.: devops@telefonica.com',
+        message: 'Valor não corresponde a um email Ex.: devops@hotmail.com',
         errorType: ErrorTypeEnum[ErrorTypeEnum.email],
         code: ErrorTypeEnum.email
     } as ErrorMessageModel;
@@ -30,10 +30,12 @@ export class ErrorMessageControl {
         code: ErrorTypeEnum.email
     } as ErrorMessageModel;
 
-    static requiredCountItem = {
-        message: 'São necessários 2 itens',
-        errorType: ErrorTypeEnum[ErrorTypeEnum.items],
-        code: ErrorTypeEnum.items
-    } as ErrorMessageModel;
+    static requiredCountItem(itens: number) {
+        return {
+            message: itens > 0 ? (itens  + ' itens faltando'): (itens * - 1  + ' itens excedidos'),
+            errorType: ErrorTypeEnum[ErrorTypeEnum.items],
+            code: ErrorTypeEnum.items
+        } as ErrorMessageModel
+    }
 
 }

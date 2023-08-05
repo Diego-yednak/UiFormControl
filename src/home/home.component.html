@@ -1,19 +1,24 @@
-<div class = "example-container">
+<div class = "custom-select-container">
     <form [formGroup] = "form" (ngSubmit) = "eventSubmit()">
         <mat-form-field>
             <mat-label>Name</mat-label>
             <input matInput formControlName = "name">
             <mat-error *matErrorContent = "let error">{{ error?.message }}</mat-error>
+            <mat-hint *matHintContent = "let hint">{{ hint }}</mat-hint>
         </mat-form-field>
+
         <mat-form-field>
             <mat-label>Age</mat-label>
-            <input matInput formControlName = "age">
+            <input matInput formControlName = "age" type="number">
             <mat-error *matErrorContent = "let error">{{ error?.message }}</mat-error>
+            <mat-hint *matHintContent = "let hint">{{ hint }}</mat-hint>
         </mat-form-field>
+
         <mat-form-field>
             <mat-label>Email</mat-label>
             <input matInput formControlName = "email">
             <mat-error *matErrorContent = "let error">{{ error?.message }}</mat-error>
+            <mat-hint *matHintContent = "let hint">{{ hint }}</mat-hint>
         </mat-form-field>
 
         <h4>Custom Select</h4>

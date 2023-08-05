@@ -1,4 +1,4 @@
-.example-container mat-form-field + mat-form-field + button {
+.custom-select-container mat-form-field + mat-form-field + button {
     margin-left: 8px;
 }
 

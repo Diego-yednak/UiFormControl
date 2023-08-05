@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, ValidationErrors, Validator } from '@angular/forms';
-import { GenerateProviders } from '../../shared/util/generate-providers';
+import { UiUtil } from '../../shared/util/ui-util';
 import { UiFormControl } from '../../shared/util/ui-form-control';
 import { MatSelectChange } from '@angular/material/select';
 
@@ -8,9 +8,9 @@ import { MatSelectChange } from '@angular/material/select';
     selector: 'my-select',
     templateUrl: 'my-custom-select.component.html',
     styleUrls: ['my-custom-select.component.css'],
-    providers: GenerateProviders.defaultForm(MySelectComponent)
+    providers: UiUtil.defaultProviders(MyCustomSelectComponent)
 })
-export class MySelectComponent implements ControlValueAccessor, Validator {
+export class MyCustomSelectComponent implements ControlValueAccessor, Validator {
     @Input() options: string[];
     value: Array<string>;
     public parentControl: UiFormControl;
